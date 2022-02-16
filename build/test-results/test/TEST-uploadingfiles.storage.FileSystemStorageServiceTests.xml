@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="uploadingfiles.storage.FileSystemStorageServiceTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-02-15T14:58:26" hostname="GDT03" time="0.209">
+  <properties/>
+  <testcase name="savePermitted()" classname="uploadingfiles.storage.FileSystemStorageServiceTests" time="0.016"/>
+  <testcase name="loadNonExistent()" classname="uploadingfiles.storage.FileSystemStorageServiceTests" time="0.177"/>
+  <testcase name="saveAndLoad()" classname="uploadingfiles.storage.FileSystemStorageServiceTests" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
