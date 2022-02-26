@@ -21,26 +21,39 @@ public class count {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 
-    public static String countFrequencies(String x) throws FileNotFoundException {
+    public static String countFrequencies(String fileName) throws FileNotFoundException {
 
-        Scanner s = new Scanner(new File("upload-dir/" + x));
-        ArrayList<String> list = new ArrayList<String>();
+        // Uploading file to ArrayList
+        
+        Scanner s = new Scanner(new File("upload-dir/" + fileName));
+        ArrayList<String> wordSlist = new ArrayList<String>();
         while (s.hasNext()) {
-            list.add(s.next());
+            wordSlist.add(s.next());
         }
         s.close();
 
-        Map<String, Integer> hm = new HashMap<String, Integer>();
-        for (String i : list) {
-            Integer j = hm.get(i);
-            hm.put(i, (j == null) ? 1 : j + 1);
+        
+        // Counting words 
+        
+        Map<String, Integer> countedWords = new HashMap<String, Integer>();
+        for (String i : wordSlist) {
+            Integer j = countedWords.get(i);
+            countedWords.put(i, (j == null) ? 1 : j + 1);
         }
 
-        final Map<String, Integer> sortedByCount = sortByValue(hm);
+        
+        // Sorting 
+        
+        final Map<String, Integer> sortedByCount = sortByValue(countedWords);
+        
+        
+        // Convert to JSON file
 
         Gson json = new Gson();
 
         String response = json.toJson(sortedByCount);
+        
+        // Returning response
 
         return response;
     }
